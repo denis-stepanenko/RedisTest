@@ -1,0 +1,29 @@
+version: '3.9'
+
+services:
+
+  postgres:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_DB: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 123456
+      PGDATA: /var/lib/postgresql/data
+    volumes:
+      - .postgresql/data:/var/lib/postgresql/data
+    ports:
+      - 6060:5432
+
+  # Specify postgres container's name as host name adding server
+  pgadmin4:
+    image: dpage/pgadmin4
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: stepanenkodo@yandex.ru
+      PGADMIN_DEFAULT_PASSWORD: 123456
+      PGADMIN_LISTEN_PORT: 8080
+    ports:
+      - 5050:8080
+    volumes:
+      - .pgadmin4/servers.json:/pgadmin4/servers.json

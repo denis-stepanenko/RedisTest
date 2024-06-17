@@ -1,0 +1,7 @@
+bin/
+obj/
+.idea/
+.vs/
+.pgadmin4/
+.postgresql/
+.redis-data/
