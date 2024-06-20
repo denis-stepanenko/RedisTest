@@ -2,11 +2,13 @@
 Redis has default list of stop words and they apply to all full-text indexes. These words are words that usually so common that they do not add much information to search, but take up a lot of space. When indexing, they are discarded. When searching, they are ignored: a, is, the, an, and, are, as, at, be, but, by, for, if, in, into, it, no, not, of, on, or, such, that, their, then, there, these, they, this, to, wa, will, with.
 
 Add new stop words to index:
+```
 FT.CREATE myIndex STOPWORDS 3 foo bar test SCHEMA title TEXT body TEXT
-
+```
 Disable stop words:
+```
 Call FT.CREATE with STOPWORDS 0
-
+```
 # Dialects (default 1)
 Dialects provide for enhancing the query API incrementally, introducing innovative behaviors and new features that support new use cases in a way that does not break the API for existing applications.
 
