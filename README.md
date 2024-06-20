@@ -14,30 +14,39 @@ Dialects provide for enhancing the query API incrementally, introducing innovati
 
 # Keyspace
 Scan keyspace (scan for first 100 keys. returns cursor position):
+```
 SCAN 0 COUNT 100
-
+```
 Find keys whose name begins with "c":
+```
 SCAN 0 MATCH "c*" COUNT 100
-
+```
 Check if there is such key
+```
 EXISTS bicycle:0
-
+```
 Delete key
+```
 DEL bicycle:8
-
+```
 Set key with time to live (will be deleted after the time expires)
 in seconds
+```
 SET test3 "LOCKED" EX 10
+```
 in milliseconds
+```
 SET test4 "LOCKED" PX 10000
-
+```
 Set expiration time (seconds)
+```
 EXPIRE test 20
-
+```
 How much time is left before a key expires 
 (-1 - does not have expiration time, -2 - already expired)
+```
 TTL bicycle:1
-
+```
 # Data structures
 
 ## String
